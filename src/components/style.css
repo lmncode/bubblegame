@@ -1,0 +1,137 @@
+html {
+	box-sizing: border-box;
+	font-family: "Luckiest Guy", cursive;
+	position: fixed;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+body {
+	height: 100%;
+	background: #222831;
+}
+
+#root {
+	height: 100%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+.wrapper {
+	position: relative;
+
+	height: 100%;
+	width: 100%;
+}
+
+h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #fff;
+	margin: 20px;
+	z-index: 3;
+}
+
+h2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: red;
+	margin: 20px;
+	z-index: 3;
+}
+
+button {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: transparent;
+	padding: 20px 30px;
+	border: 5px solid #ffd800;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.bubble {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	-moz-box-shadow: inset 0 0 10px #fff;
+	-webkit-box-shadow: inset 0 0 10px #fff;
+	box-shadow: inset 0 0 10px #fff;
+	cursor: pointer;
+	transform: scale(1);
+}
+
+.bubble::before {
+	position: absolute;
+	content: '';
+	top: 20px;
+	left: 10px;
+	border-radius: 50%;
+	width: 20px;
+	height: 8px;
+	background: white;
+	transform: rotate(-45deg);
+	-moz-box-shadow: 0 0 3px #fff;
+	-webkit-box-shadow: 0 0 3px #fff;
+	box-shadow: 0 0 3px #fff;
+	z-index: 1;
+}
+
+.bubble::after {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 50%;
+	border-radius: 50%;
+	width: 80%;
+	height: 70%;
+	background: transparent;
+	transform: translateX(-50%);
+	-moz-box-shadow: inset 0 9px 10px #fff;
+	-webkit-box-shadow: inset 0 9px 10px #fff;
+	box-shadow: inset 0 9px 10px #fff;
+}
+
+.bubble.move {
+	animation: move 0.8s linear infinite;
+}
+
+.bubble.clicked {
+	animation: clicked 0.3s !important;
+}
+
+@keyframes move {
+	from {
+		top: 100%;
+	}
+
+	to {
+		top: -100%;
+	}
+}
+
+@keyframes clicked {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	to {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
